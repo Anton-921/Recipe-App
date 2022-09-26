@@ -1,0 +1,43 @@
+.container {
+  margin-top: 5em;
+}
+
+.container h1 {
+  margin: 1em 0;
+}
+
+.container p {
+  font-weight: lighter;
+  font-size: .95rem;
+  margin: 2.3em 0;
+}
+
+.container button {
+  margin-top: 3em;
+}
+
+.svg {
+  width: 300px;
+}
+
+.btn {
+  padding: 7px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-main {
+  background-color: #f87469;
+  color: white;
+  border: none;
+  border: 1px solid #f87469;
+  transition-duration: 200ms;
+}
+
+.btn-main:hover {
+  background-color: #df685f;
+  border: 1px solid #df685f;
+}
