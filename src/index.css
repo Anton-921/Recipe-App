@@ -1,10 +1,17 @@
-* { 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
-  border: 3px solid salmon;
+  font-family: "Inter", sans-serif;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
 }
