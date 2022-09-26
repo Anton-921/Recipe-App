@@ -12,10 +12,6 @@
   width: 100%;
 }
 
-.btn-container {
-  /* margin-left: auto; */
-}
-
 /* This .btn could be a mixin */
 
 .btn-main {
@@ -44,7 +40,7 @@
 .btn {
   padding: 7px 15px;
   border-radius: 4px;
-  margin: 2px 5px;
+  margin-right: 5px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
