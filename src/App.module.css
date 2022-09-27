@@ -1,7 +1,4 @@
 .App {
   min-height: 100vh;
   border: 5px solid seagreen;
-  padding: 5px 15px;
-  display: flex;
-  flex-direction: column;
 }
