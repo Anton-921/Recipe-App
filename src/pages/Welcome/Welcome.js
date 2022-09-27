@@ -4,7 +4,7 @@ import welcomeSvg from "../../welcome.svg";
 
 const Welcome = () => {
   return (
-    <main className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.icon}>
         <img src={welcomeSvg} className={styles.svg} alt="people eating" />
       </div>
@@ -20,7 +20,7 @@ const Welcome = () => {
       <button className={[styles["btn-main"], styles.btn].join(" ")}>
         Sign up for Res!
       </button>
-    </main>
+    </section>
   );
 };
 
