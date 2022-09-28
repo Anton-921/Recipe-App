@@ -8,25 +8,16 @@ const Feed = () => {
   return (
     <section className={styles.container}>
       <h1>Recipes Feed</h1>
-      {/* Container For items */}
       <div className={styles.cards}>
         <div className={styles.card}>
-          {/* Card Heading */}
           <div className={styles["card-heading"]}>
             <img src={oatmeal} alt="oatmeal" />
           </div>
-
-          {/* Card Body */}
           <div className={styles["card-body"]}>
             <div className={styles["card-title"]}>
-              {/* Card Title */}
               <h3>Chai Oatmeal</h3>
-
-              {/* Card-Sub-title */}
               <span>Breakfast</span>
             </div>
-
-            {/* Card Icons */}
             <div className={styles["card-icons"]}>
               <ul>
                 <li>
@@ -43,8 +34,6 @@ const Feed = () => {
                 </li>
               </ul>
             </div>
-
-            {/* Card Description */}
             <div className={styles["card-description"]}>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
@@ -52,8 +41,6 @@ const Feed = () => {
                 ea vero!
               </p>
             </div>
-
-            {/* Card Ingredients */}
             <div className={styles["card-ingredients"]}>
               <span>
                 Ingredients: Milk, salt, coriander, cardamom, cinnamon,
