@@ -1,0 +1,50 @@
+.header {
+
+}
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75em 1em;
+}
+.logo {
+  width: 40px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+/* Need to make this resuable somehow, im repeating myself, not good */
+
+.btn-main {
+  background-color: #f87469;
+  color: white;
+  border: none;
+  border: 1px solid #f87469;
+  transition-duration: 200ms;
+}
+
+.btn-main:hover {
+  background-color: #df685f;
+  border: 1px solid #df685f;
+}
+
+.btn-minor {
+  background-color: transparent;
+  border: 1px solid grey;
+  transition-duration: 200ms;
+}
+.btn-minor:hover {
+  background-color: grey;
+  color: white;
+}
+
+.btn {
+  padding: 7px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
