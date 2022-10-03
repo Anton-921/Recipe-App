@@ -1,6 +1,7 @@
 .header {
   /* Careful about adding padding here as it removes 
  additional functionality like we mentioned on notes*/
+ border-bottom: 1px solid #ccc;
 }
 
 .logo {
@@ -12,7 +13,10 @@
 }
 
 .nav {
-  border-bottom: 1px solid #ccc;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
 }
 
 .nav__toggle {
@@ -40,7 +44,7 @@
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-  padding: 1em;
+  padding: 1em 0;
 }
 .nav__menu li {
   list-style: none;
