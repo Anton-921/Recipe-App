@@ -1,9 +1,15 @@
 .container {
-  padding: 1em;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container h1 {
-  margin: 1.5em 0;
+  margin: 1em 0;
+}
+
+.form {
+  padding: 0em 1em;
 }
 
 .form button {
@@ -50,6 +56,7 @@
 .form-control textarea {
   width: 100%;
   font-size: .91rem;
+  border: 1px solid #ccc;
 }
 
 .btn {
