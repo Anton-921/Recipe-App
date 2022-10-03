@@ -1,18 +1,21 @@
 .container {
-  padding: 1em;
   background-color: #fafafa;
   flex: 1 0 0;
 }
-.container h1 {
-  margin: .5em 0;
+.feed {
+  max-width: 1600px;
+  width: 100%;
+  padding: 0 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
+.container h1 {
+  margin: 1em 0;
+}
+
 img {
   height: auto;
   max-width: 100%;
   vertical-align: bottom;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
