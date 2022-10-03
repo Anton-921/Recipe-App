@@ -5,8 +5,9 @@ import Cards from "../../components/Cards/Card";
 const Feed = () => {
   return (
     <section className={styles.container}>
-      <h1>Recipes Feed</h1>
-      <div className={styles.cards}>
+      <div className={styles.feed}>
+        <h1>Recipes Feed</h1>
+
         <Cards />
       </div>
     </section>
