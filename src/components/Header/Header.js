@@ -3,13 +3,12 @@ import logo from "../../diet.png";
 import styles from "../Header/Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [user, setUser] = useState("Yeffry");
   const [checked, setChecked] = useState(false);
 
-  console.log(checked);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -26,23 +25,21 @@ const Header = () => {
         </label>
         <ul className={styles["nav__menu"]}>
           <li>
-            <a href="#">
+            <NavLink href="#">
               <img src={logo} className={styles.logo} alt="" />
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="#">About</a>
+            <NavLink to="/home">Home</NavLink>
           </li>
           <li>
-            <a href="#">Work</a>
+            <NavLink to="/addrecipe">Add Recipe</NavLink>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <NavLink to="/myrecipe">My Recipes</NavLink>
           </li>
         </ul>
       </nav>
-
-      <Outlet />
     </header>
   );
 };
