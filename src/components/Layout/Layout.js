@@ -6,10 +6,11 @@ import Dashboard from "../Dashboard/Dashboard";
 import Header from "../Header/Header";
 
 const Layout = () => {
-  const { isAuth } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
+  console.log(auth)
   return (
     <main className={styles.App}>
-      {isAuth ? <Header /> : <Dashboard />}
+      {auth.user ? <Header /> : <Dashboard />}
       <Outlet />
     </main>
   );
