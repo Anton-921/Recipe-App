@@ -46,7 +46,7 @@ const items = [
       "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
   },
   {
-    id:3,
+    id:4,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -59,7 +59,7 @@ const items = [
       "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
   },
   {
-    id:3,
+    id:5,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -72,7 +72,7 @@ const items = [
       "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
   },
   {
-    id:3,
+    id:6,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -85,7 +85,7 @@ const items = [
       "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
   },
   {
-    id:3,
+    id:7,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -98,7 +98,7 @@ const items = [
       "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
   },
   {
-    id:3,
+    id:8,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
