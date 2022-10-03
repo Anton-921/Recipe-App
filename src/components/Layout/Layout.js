@@ -7,10 +7,10 @@ import Header from "../Header/Header";
 
 const Layout = () => {
   const { auth } = useContext(AuthContext);
-  console.log(auth)
+  console.log(auth);
   return (
     <main className={styles.App}>
-      {auth.user ? <Header /> : <Dashboard />}
+      <Header />
       <Outlet />
     </main>
   );
