@@ -6,6 +6,7 @@ import { BsFillBarChartFill } from "react-icons/bs";
 
 const items = [
   {
+    id: 1,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -18,6 +19,7 @@ const items = [
       "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
   },
   {
+    id: 2,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -31,6 +33,72 @@ const items = [
   },
 
   {
+    id:3,
+    image: oatmeal,
+    recipeTitle: "Chai Oatmeal",
+    recipeType: "Breakfast",
+    estimatedTime: "15 Min",
+    difficulty: "Beginner",
+    likes: "742",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veniam quidem pariatur? Optio mollitia ullam nisi hic. Nostrum, ea vero!",
+    ingredients:
+      "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
+  },
+  {
+    id:3,
+    image: oatmeal,
+    recipeTitle: "Chai Oatmeal",
+    recipeType: "Breakfast",
+    estimatedTime: "15 Min",
+    difficulty: "Beginner",
+    likes: "742",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veniam quidem pariatur? Optio mollitia ullam nisi hic. Nostrum, ea vero!",
+    ingredients:
+      "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
+  },
+  {
+    id:3,
+    image: oatmeal,
+    recipeTitle: "Chai Oatmeal",
+    recipeType: "Breakfast",
+    estimatedTime: "15 Min",
+    difficulty: "Beginner",
+    likes: "742",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veniam quidem pariatur? Optio mollitia ullam nisi hic. Nostrum, ea vero!",
+    ingredients:
+      "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
+  },
+  {
+    id:3,
+    image: oatmeal,
+    recipeTitle: "Chai Oatmeal",
+    recipeType: "Breakfast",
+    estimatedTime: "15 Min",
+    difficulty: "Beginner",
+    likes: "742",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veniam quidem pariatur? Optio mollitia ullam nisi hic. Nostrum, ea vero!",
+    ingredients:
+      "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
+  },
+  {
+    id:3,
+    image: oatmeal,
+    recipeTitle: "Chai Oatmeal",
+    recipeType: "Breakfast",
+    estimatedTime: "15 Min",
+    difficulty: "Beginner",
+    likes: "742",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veniam quidem pariatur? Optio mollitia ullam nisi hic. Nostrum, ea vero!",
+    ingredients:
+      "Ingredients: Milk, salt, coriander, cardamom, cinnamon, turmeric, honey, vanilla extract, regular oats, oat bran.",
+  },
+  {
+    id:3,
     image: oatmeal,
     recipeTitle: "Chai Oatmeal",
     recipeType: "Breakfast",
@@ -49,7 +117,7 @@ const Cards = () => {
   return (
     <div className={styles.cards}>
       {items.map((item) => (
-        <div className={styles.card}>
+        <div className={styles.card} key={item.id}>
           <div className={styles["card-heading"]}>
             <img src={item.image} alt="oatmeal" />
           </div>
