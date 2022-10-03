@@ -4,11 +4,11 @@ import styles from "../AddRecipe/AddRecipe.module.css";
 const AddRecipe = () => {
   return (
     <section className={styles.container}>
-      <h1>Add Recipe</h1>
       <form action="" className={styles.form}>
+        <h1>Add Recipe</h1>
         <div className={styles["form-control"]}>
           <label htmlFor="recipe">Recipe Name</label>
-          <input type="text" name="recipe" id="recipe"/>
+          <input type="text" name="recipe" id="recipe" />
         </div>
 
         <div className={styles["form-control"]}>
@@ -42,7 +42,12 @@ const AddRecipe = () => {
 
         <div className={styles["form-control"]}>
           <label htmlFor="description">Short Description</label>
-          <textarea name="description" id="description" cols="25" rows="5"></textarea>
+          <textarea
+            name="description"
+            id="description"
+            cols="25"
+            rows="5"
+          ></textarea>
         </div>
 
         <div className={styles["form-control"]}>
