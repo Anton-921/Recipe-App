@@ -1,0 +1,11 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "/* \r GET \t    api/recipes \t          get all recipes\r GET \t    api/recipes/:id \t      get Tutorial by id\r POST \t    api/recipes \t          add new Tutorial\r PUT \t    api/recipes/:id \t      update Tutorial by id\r DELETE \t  api/recipes/:id \t      remove Tutorial by id\r DELETE \t  api/recipes \t          remove all recipes\r GET \t    pi/recipes?title=[kw] \tfind all recipes which title contains 'kw'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
