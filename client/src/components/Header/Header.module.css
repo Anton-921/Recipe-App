@@ -1,0 +1,129 @@
+.header {
+  border-bottom: 1px solid #ccc;
+}
+
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75em 1em;
+}
+
+.logo {
+  width: 35px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.nav {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.nav__toggle {
+  position: absolute;
+  cursor: pointer;
+  margin: 1em 1em;
+  right: 0;
+  display: flex;
+}
+.nav__toggle svg {
+  align-self: flex-end;
+}
+.nav__toggle .close {
+  display: none;
+}
+.nav__toggle .menu {
+  margin-top: 0.2rem;
+}
+.nav__checkbox {
+  display: none;
+}
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 1em 0;
+}
+.nav__menu li {
+  list-style: none;
+  display: none;
+}
+.nav__menu li svg {
+  vertical-align: middle;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.nav__menu li:first-child {
+  display: block;
+  margin-right: auto;
+}
+
+.nav__menu a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+.nav__menu svg {
+  width: 1.5rem;
+}
+
+.nav__checkbox:checked ~ ul.nav__menu li {
+  display: block;
+}
+.nav__checkbox:checked ~ label.nav__toggle .close {
+  display: block;
+}
+.nav__checkbox:checked ~ label.nav__toggle .menu {
+  display: none;
+}
+
+@media only screen and (min-width: 560px) {
+  .nav__toggle {
+    display: none;
+  }
+  .nav__menu {
+    flex-direction: row;
+  }
+  .nav__menu li {
+    display: block;
+  }
+}
+
+.btn-main {
+  background-color: #f87469;
+  color: white;
+  border: none;
+  border: 1px solid #f87469;
+  transition-duration: 200ms;
+}
+
+.btn-main:hover {
+  background-color: #df685f;
+  border: 1px solid #df685f;
+}
+
+.btn-minor {
+  background-color: transparent;
+  border: 1px solid grey;
+  transition-duration: 200ms;
+}
+.btn-minor:hover {
+  background-color: grey;
+  color: white;
+}
+
+.btn {
+  padding: 7px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}

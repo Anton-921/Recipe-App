@@ -1,0 +1,50 @@
+.container {
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.container h1 {
+  margin: 1.5em 0;
+}
+.form button{
+  margin-top: .5em;
+}
+
+.form-control {
+  margin: 0.75em 0;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 0.45em;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 12px 7px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 7px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-main {
+  background-color: #f87469;
+  color: white;
+  border: none;
+  border: 1px solid #f87469;
+  transition-duration: 200ms;
+}
+
+.btn-main:hover {
+  background-color: #df685f;
+  border: 1px solid #df685f;
+}
