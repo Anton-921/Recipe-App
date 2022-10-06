@@ -60,10 +60,22 @@
 }
 .card-description p {
   font-size: 0.81rem;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card-ingredients {
   margin-top: 1em;
 }
 .card-ingredients span {
   font-size: 0.81rem;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
