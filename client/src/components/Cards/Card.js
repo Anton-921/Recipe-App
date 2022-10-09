@@ -5,11 +5,10 @@ import { AiOutlineClockCircle, AiFillFire } from "react-icons/ai";
 import { BsFillBarChartFill } from "react-icons/bs";
 
 
-const Cards = ({ recipes }) => {
-  console.log(recipes)
+const Cards = ({items}) => {
   return (
     <div className={styles.cards}>
-      {recipes.map((item) => (
+      {items.map((item) => (
         <div className={styles.card} key={item.id}>
           <div className={styles["card-heading"]}>
             <img src={item.image} alt="oatmeal" />
