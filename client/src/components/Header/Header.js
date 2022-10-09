@@ -10,7 +10,6 @@ import useAuth from "../../hooks/useAuth";
 const Header = () => {
   const { auth } = useAuth();
   const [checked, setChecked] = useState(false);
-  console.log(auth);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>

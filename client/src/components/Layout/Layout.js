@@ -6,7 +6,6 @@ import Header from "../Header/Header";
 
 const Layout = () => {
   const { auth } = useContext(AuthContext);
-  console.log(auth);
   return (
     <main className={styles.App}>
       <Header />
