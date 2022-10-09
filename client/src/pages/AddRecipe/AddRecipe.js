@@ -1,68 +1,50 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import styles from "../AddRecipe/AddRecipe.module.css";
 import { useNavigate } from "react-router-dom";
+import { useRecipes } from "../../context/RecipeProvider";
 
-const AddRecipe = ({ setRecipes }) => {
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [time, setTime] = useState("");
-  const [difficulty, setDifficulty] = useState("");
-  const [description, setDescription] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [directions, setDirections] = useState("");
-  const [image, setImage] = useState("");
+const AddRecipe = () => {
+  const { recipes ,setRecipes } = useRecipes();
   let navigate = useNavigate();
+  const form = useRef(null);
 
-  const handleAddRecipe = (e) => {
+  const handleAddRecipe = async (e) => {
     e.preventDefault();
-    const recipe = {
-      name,
-      type,
-      time,
-      difficulty,
-      description,
-      ingredients,
-      directions,
-      image,
-    };
-    // post request with recipe
-    setRecipes((recipes) => {
-      return [recipe, ...recipes]
-    })
-
-    navigate("/home");
-  };
-  const imgFilehandler = (e) => {
-    if (e.target.files.length !== 0) {
-      setImage(URL.createObjectURL(e.target.files[0]));
+    const recipeData = new FormData(form.current);
+    try {
+      const response = await fetch("http://localhost:8080/api/recipes", {
+        method: "POST",
+        body: recipeData,
+      });
+      const resJson = await response.json();
+      if (response.status === 200) {
+        setRecipes([resJson.recipe, ...recipes]);
+        navigate("/home");
+      } else {
+        console.log("Set some state error message");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
-  console.log(image);
 
   return (
     <section className={styles.container}>
-      <form action="" className={styles.form} onSubmit={handleAddRecipe}>
+      <form
+        className={styles.form}
+        onSubmit={handleAddRecipe}
+        ref={form}
+        encType="multipart/form-data"
+      >
         <h1>Add Recipe</h1>
         <div className={styles["form-control"]}>
           <label htmlFor="recipe">Recipe Name</label>
-          <input
-            type="text"
-            name="recipe"
-            maxLength={30}
-            id="recipe"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
+          <input type="text" name="recipeName" maxLength={30} id="recipe" />
         </div>
 
         <div className={styles["form-control"]}>
           <label htmlFor="type">Recipe Type</label>
-          <select
-            name="type"
-            id="type"
-            onChange={(e) => setType(e.target.value)}
-            value={type}
-          >
+          <select name="recipeType" id="type">
             <option>Choose Recipe Type</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
@@ -73,12 +55,7 @@ const AddRecipe = ({ setRecipes }) => {
 
         <div className={styles["form-control"]}>
           <label htmlFor="time">Estimated Time</label>
-          <select
-            name="time"
-            id="time"
-            onChange={(e) => setTime(e.target.value)}
-            value={time}
-          >
+          <select name="estimatedTime" id="time">
             <option>Choose Estimate Time</option>
             <option value="15 min">15 Min</option>
             <option value="30 min">30 Min</option>
@@ -89,12 +66,7 @@ const AddRecipe = ({ setRecipes }) => {
 
         <div className={styles["form-control"]}>
           <label htmlFor="difficulty">Difficulty</label>
-          <select
-            name="difficulty"
-            id="difficulty"
-            onChange={(e) => setDifficulty(e.target.value)}
-            value={difficulty}
-          >
+          <select name="difficulty" id="difficulty">
             <option>Choose Difficulty</option>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
@@ -103,12 +75,8 @@ const AddRecipe = ({ setRecipes }) => {
         </div>
 
         <div className={styles["form-control"]}>
-          <label htmlFor="difficulty">Recipe Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => imgFilehandler(e)}
-          />
+          <label htmlFor="image">Recipe Image</label>
+          <input type="file" accept="image/*" name="imageFile" />
         </div>
 
         <div className={styles["form-control"]}>
@@ -120,8 +88,6 @@ const AddRecipe = ({ setRecipes }) => {
             rows="1"
             maxLength={500}
             wrap="hard"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
 
@@ -135,8 +101,6 @@ const AddRecipe = ({ setRecipes }) => {
             maxLength={500}
             wrap="hard"
             placeholder="Ingredient 1, Ingredient 2, ..."
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
           ></textarea>
         </div>
 
@@ -152,8 +116,6 @@ const AddRecipe = ({ setRecipes }) => {
             Direction 2 
             ...
             "
-            value={directions}
-            onChange={(e) => setDirections(e.target.value)}
           ></textarea>
         </div>
         <div>
