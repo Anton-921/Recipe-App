@@ -1,12 +1,14 @@
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-right: .5em;
+  row-gap: 30px;
+  column-gap: 15px;
   place-items: center;
-  gap: 20px;
 }
 
 .card {
-  max-width: 400px;
+  max-width: 350px;
   height: 400px;
   border-radius: 5px;
   background-color: #fff;
@@ -21,7 +23,7 @@
   width: 100%;
   object-fit: cover;
 }
-.card-body {
+.card-body{
   padding: 1em;
 }
 
@@ -33,12 +35,15 @@
   color: gray;
   font-weight: 200;
   display: block;
+  text-transform: capitalize;
 }
 
 .card-icons {
   margin: 1.5em 0;
 }
-
+.card-icons span {
+  text-transform: capitalize;
+}
 .card-icons ul {
   display: flex;
   justify-content: space-between;
