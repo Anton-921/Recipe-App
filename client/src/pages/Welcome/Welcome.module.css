@@ -1,7 +1,13 @@
 .container {
-  margin-top: 5em;
+  display: flex;
+  justify-content: center;
 }
-
+.content-wrapper {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
+}
 .container h1 {
   margin: 1em 0;
 }
@@ -15,9 +21,11 @@
 .container button {
   margin-top: 3em;
 }
-
+.icon {
+  margin: 5em 0;
+}
 .svg {
-  width: 300px;
+  
 }
 
 .btn {
@@ -40,4 +48,20 @@
 .btn-main:hover {
   background-color: #df685f;
   border: 1px solid #df685f;
+}
+
+
+@media only screen and (min-width: 720px) {
+  .content-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .content {
+    flex: 1;
+  }
+  .icon {
+    flex: 2;
+    margin-left: 2em;
+  }
 }
