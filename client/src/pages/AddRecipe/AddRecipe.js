@@ -45,7 +45,6 @@ const AddRecipe = () => {
         <div className={styles["form-control"]}>
           <label htmlFor="type">Recipe Type</label>
           <select name="recipeType" id="type">
-            <option>Choose Recipe Type</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
@@ -56,7 +55,6 @@ const AddRecipe = () => {
         <div className={styles["form-control"]}>
           <label htmlFor="time">Estimated Time</label>
           <select name="estimatedTime" id="time">
-            <option>Choose Estimate Time</option>
             <option value="15 min">15 Min</option>
             <option value="30 min">30 Min</option>
             <option value="45 min">45 Min</option>
@@ -67,7 +65,6 @@ const AddRecipe = () => {
         <div className={styles["form-control"]}>
           <label htmlFor="difficulty">Difficulty</label>
           <select name="difficulty" id="difficulty">
-            <option>Choose Difficulty</option>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
