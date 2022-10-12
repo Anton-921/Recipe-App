@@ -25,7 +25,8 @@
   margin: 5em 0;
 }
 .svg {
-  
+  margin-left: auto;
+  display: block;
 }
 
 .btn {
@@ -58,7 +59,7 @@
     align-items: center;
   }
   .content {
-    flex: 1;
+    flex: 1.5;
   }
   .icon {
     flex: 2;
