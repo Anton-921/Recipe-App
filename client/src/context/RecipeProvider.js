@@ -1,31 +1,31 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useState } from "react";
 
-const RecipeContext = createContext({});
+const RecipeContext = createContext();
 
-const initialState = {
-  recipes: [],
-};
-
-const recipeReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_RECIPE": {
-      const newRecipe = action.payload.recipe
-      return { recipes: [newRecipe, ...state.recipes] }
-    }
-    case "GET_ALL": {
-      return { recipes: state.recipes }
-    }
-  }
-};
+export const useRecipes = () => {
+  return useContext(RecipeContext)
+}
 
 export const RecipeProvider = ({ children }) => {
-  const [recipe, dispatch] = useReducer(recipeReducer, initialState);
+  const [recipes, setRecipes] = useState([])
 
   return (
-    <RecipeContext.Provider value={{ recipe, dispatch }}>
+    <RecipeContext.Provider value={{ recipes, setRecipes }}>
       {children}
     </RecipeContext.Provider>
   );
 };
 
 export default RecipeContext;
+
+// const recipeReducer = (state, action) => {
+//   switch (action.type) {
+//     case "ADD_RECIPE": {
+//       const newRecipe = action.payload.recipe
+//       return { recipes: [newRecipe, ...state.recipes] }
+//     }
+//     case "GET_ALL": {
+//       return { recipes: state.recipes }
+//     }
+//   }
+// };
