@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Welcome/Welcome.module.css";
-import welcomeSvg from "../../welcome.svg";
+import welcomeSvg from "../../assets/welcome.svg";
 
 const Welcome = () => {
   return (
