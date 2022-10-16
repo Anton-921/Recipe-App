@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../Cards/Cards.module.css";
-import oatmeal from "../../oatmeal.jpg";
 import { AiOutlineClockCircle, AiFillFire } from "react-icons/ai";
 import { BsFillBarChartFill } from "react-icons/bs";
 
