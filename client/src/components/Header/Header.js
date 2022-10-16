@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../diet.png";
+import logo from '../../assets/diet.png'
 import styles from "../Header/Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
