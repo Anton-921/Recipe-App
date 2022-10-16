@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const recipeSchema = new mongoose.Schema({
+const recipeSchema = new Schema({
   image: String,
   name: String,
   type: String,
@@ -8,19 +9,16 @@ const recipeSchema = new mongoose.Schema({
   difficulty: String,
   likes: {
     type: String,
-    default: 0
+    default: 0,
   },
   description: String,
-  ingredients: String
-})
+  ingredients: String,
+});
 
-
-recipeSchema.method("toJSON", function() {
+recipeSchema.method("toJSON", function () {
   const { __v, _id, ...object } = this.toObject();
   object.id = _id;
   return object;
 });
 
-const Recipe = mongoose.model('Recipe', recipeSchema)
-
-module.exports = Recipe
+module.exports = Recipe = mongoose.model("Recipe", recipeSchema);
