@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../Welcome/Welcome.module.css";
 import welcomeSvg from "../../assets/welcome.svg";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
@@ -21,7 +22,7 @@ const Welcome = () => {
           </p>
 
           <button className={[styles["btn-main"], styles.btn].join(" ")}>
-            Sign up for Res!
+            <Link to="/signup">Sign up for Res!</Link>
           </button>
         </div>
       </div>
