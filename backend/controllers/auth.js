@@ -55,7 +55,7 @@ exports.login = async (req, res) => {
 
   req.session.userId = user._id;
 
-  res.json({ message: "You are successfully logged in" });
+  res.json({ message: "You are successfully logged in", user: user });
 };
 
 exports.logout = (req, res) => {
