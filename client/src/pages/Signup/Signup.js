@@ -1,35 +1,54 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "../Login/Login.module.css";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/AuthProvider";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/v1/auth/register",
+        {
+          method: "POST",
+          credentials: 'include',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password, username }),
+        }
+      );
 
-    const user = {
-      email,
-      pwd,
-    };
+      const resJson = await response.json();
 
-    fetch("http://localhost:8080/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+      if (response.status === 201) {
+        setAuth(resJson.user);
+        navigate('/home')
+      }
+    } catch (error) {
+      console.log("catch error");
+    }
   };
 
   return (
     <section className={styles.container}>
       <h1>Sign Up</h1>
       <form onSubmit={handleSignup} className={styles.form}>
-        {/* <div className={styles["form-control"]}>
+        <div className={styles["form-control"]}>
           <label htmlFor="username">Username</label>
-          <input type="text" name="username" />
-        </div> */}
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
 
         <div className={styles["form-control"]}>
           <label htmlFor="email">Email</label>
@@ -45,8 +64,8 @@ const Signup = () => {
           <input
             type="password"
             name="password"
-            value={pwd}
-            onChange={(e) => setPwd(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
@@ -57,7 +76,7 @@ const Signup = () => {
 
         <div>
           <button className={`${styles.btn} ${styles["btn-main"]}`}>
-            Sign In
+            Sign Up
           </button>
         </div>
       </form>
