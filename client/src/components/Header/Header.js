@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from '../../assets/diet.png'
 import styles from "../Header/Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -6,14 +6,15 @@ import { MdOutlineClose } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import AuthContext from "../../context/AuthProvider";
 
 const Header = () => {
-  const { auth } = useAuth();
+  const { auth } = useAuth(useContext(AuthContext));
   const [checked, setChecked] = useState(false);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        {auth.user ? (
+        {auth ? (
           <>
             <input
               type="checkbox"
@@ -43,6 +44,7 @@ const Header = () => {
               </li>
               <li>
                 <FaUserCircle size={35} color="salmon" />
+                <span>{auth.username}</span>
                 <button className={[styles["btn-main"], styles.btn].join(" ")}>
                   Logout
                 </button>
