@@ -11,13 +11,17 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "./context/AuthProvider";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getLoggedUser();
-  }, [setAuth]);
+    const timer = setTimeout(() => {
+      getLoggedUser();
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [setAuth, setIsLoading]);
 
   const getLoggedUser = async () => {
     try {
@@ -29,6 +33,7 @@ const App = () => {
       );
       const resJson = await response.json();
       setAuth(resJson.user);
+      setIsLoading(false);
       navigate("/home");
     } catch (error) {
       navigate("/signin");
@@ -37,7 +42,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout isLoading={isLoading}/>}>
+      <Route path="/" element={<Layout loading={isLoading} />}>
         {/* Public Routes */}
         <Route index element={<Welcome />} />
         <Route path="signin" element={<Login />} />
