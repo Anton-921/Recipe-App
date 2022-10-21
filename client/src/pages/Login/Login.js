@@ -4,33 +4,31 @@ import AuthContext from "../../context/AuthProvider";
 import styles from "../Login/Login.module.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [pwd, setPwd] = useState("");
-  const { setAuth } = useContext(AuthContext);
+  const [username, setEmail] = useState("");
+  const [password, setPwd] = useState("");
+  const { auth, setAuth } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/home";
 
-  console.log(from);
   const handleLogin = async (e) => {
-    const loginData = { email, pwd };
+    const loginData = { username, password };
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/api/signin", {
+      const response = await fetch("http://localhost:8080/api/v1/auth/login", {
         method: "POST",
+        credentials: 'include',
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
       });
 
-      const resJson = response.json()
+      const resJson = await response.json()
       if (response.status === 200) {
-        console.log('user logged')
-        // User logged successfully
-        // setAuth({ user: "Yeffry" });
-        // navigate(from, { replace: true });
+        setAuth(resJson.user)
+        navigate('/home')
       } else {
         // Set Error
       }
@@ -44,10 +42,10 @@ const Login = () => {
       <h1>Login</h1>
       <form action="" className={styles.form} onSubmit={handleLogin}>
         <div className={styles["form-control"]}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username">Email</label>
           <input
             type="text"
-            value={email}
+            value={username}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -55,7 +53,7 @@ const Login = () => {
           <label htmlFor="password">Password</label>
           <input
             type="password"
-            value={pwd}
+            value={password}
             onChange={(e) => setPwd(e.target.value)}
           />
         </div>
