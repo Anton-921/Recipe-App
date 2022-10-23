@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "../Feed/Feed.module.css";
 import Cards from "../../components/Cards/Card";
 import { useRecipes } from "../../context/RecipeProvider";
-import Placeholder from "../../components/Placeholder/Placeholder";
 import Spinner from "../../components/Spinner/Spinner";
 
 const Feed = () => {
@@ -19,6 +18,7 @@ const Feed = () => {
       fetch("http://localhost:8080/api/recipes")
         .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           setRecipes(data);
           setIsLoading(false)
         });
