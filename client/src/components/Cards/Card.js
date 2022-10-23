@@ -3,12 +3,11 @@ import styles from "../Cards/Cards.module.css";
 import { AiOutlineClockCircle, AiFillFire } from "react-icons/ai";
 import { BsFillBarChartFill } from "react-icons/bs";
 
-
-const Cards = ({items}) => {
+const Cards = ({ items }) => {
   return (
     <div className={styles.cards}>
       {items.map((item) => (
-        <div className={styles.card} key={item.id}>
+        <div className={styles.card} key={item._id}>
           <div className={styles["card-heading"]}>
             <img src={item.image} alt="oatmeal" />
           </div>
