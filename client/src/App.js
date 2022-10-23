@@ -3,12 +3,12 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Feed from "./pages/Feed/Feed";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
-import { Routes, Route, useNavigate } from "react-router-dom";
 import RequireAuth from "./components/Auth/RequireAuth";
 import Layout from "./components/Layout/Layout";
 import MyRecipe from "./pages/MyRecipe/MyRecipe";
-import { useContext, useEffect, useState } from "react";
 import AuthContext from "./context/AuthProvider";
+import { useContext, useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +24,7 @@ const App = () => {
   }, [setAuth, setIsLoading]);
 
   const getLoggedUser = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       const response = await fetch(
         "http://localhost:8080/api/v1/auth/profile",
@@ -33,9 +33,11 @@ const App = () => {
         }
       );
       const resJson = await response.json();
-      setAuth(resJson.user);
-      setIsLoading(false);
-      navigate("/home");
+      if (response.status === 200) {
+        setAuth(resJson.user);
+        setIsLoading(false);
+        navigate("/home");
+      }
     } catch (error) {
       navigate("/signin");
     }
