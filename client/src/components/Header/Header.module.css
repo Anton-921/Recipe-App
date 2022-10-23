@@ -73,7 +73,16 @@
 .nav__menu svg {
   width: 1.5rem;
 }
-
+.nav__menu .user {
+  margin-right: .5rem;
+  display: inline-block;
+}
+.username {
+  cursor: pointer;
+}
+.username:hover {
+  text-decoration: underline;
+}
 .nav__checkbox:checked ~ ul.nav__menu li {
   display: block;
 }
