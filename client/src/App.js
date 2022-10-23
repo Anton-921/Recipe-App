@@ -34,11 +34,16 @@ const App = () => {
       );
       const resJson = await response.json();
       if (response.status === 200) {
+        setIsLoading(false);
         setAuth(resJson.user);
         setIsLoading(false);
         navigate("/home");
+      } else {
+        setIsLoading(false);
+        navigate("/signin");
       }
     } catch (error) {
+      setIsLoading(false);
       navigate("/signin");
     }
   };
