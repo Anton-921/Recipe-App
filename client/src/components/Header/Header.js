@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import logo from '../../assets/diet.png'
+import logo from "../../assets/diet.png";
 import styles from "../Header/Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import AuthContext from "../../context/AuthProvider";
@@ -43,8 +42,11 @@ const Header = () => {
                 <NavLink to="/myrecipe">My Recipes</NavLink>
               </li>
               <li>
-                <FaUserCircle size={35} color="salmon" />
-                <span>{auth.username}</span>
+                {/* <FaUserCircle size={35} color="salmon" /> */}
+                <span className={styles.user}>
+                  Hello,{" "}
+                  <a className={styles.username}>{auth.username}</a>!
+                </span>
                 <button className={[styles["btn-main"], styles.btn].join(" ")}>
                   Logout
                 </button>
