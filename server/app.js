@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const authRoutes = require("./routes/auth");
+const recipeRoutes = require('./routes/recipe');
 const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -30,6 +31,8 @@ app.use(
     },
   })
 );
+
 app.use("/api/v1/auth", authRoutes);
+app.use('/api', recipeRoutes)
 
 module.exports = app;
