@@ -13,6 +13,7 @@ const AddRecipe = () => {
     const recipeData = new FormData(form.current);
     try {
       const response = await fetch("http://localhost:8080/api/recipes", {
+        credentials: 'include',
         method: "POST",
         body: recipeData,
       });
