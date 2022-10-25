@@ -1,9 +1,10 @@
 const express = require("express");
+const { loginRequired } = require("../controllers/auth");
 const router = express.Router();
-const recipes = require("../controllers/recipes");
+const { addRecipe, getRecipes } = require("../controllers/recipes");
 const upload = require("../middleware/multer");
 
-router.get("/recipes", recipes.getRecipes);
-router.post("/recipes", upload.single("imageFile"), recipes.addRecipe);
+router.get("/recipes", getRecipes);
+router.post("/recipes", upload.single("imageFile"), addRecipe);
 
-module.exports = router
+module.exports = router;
