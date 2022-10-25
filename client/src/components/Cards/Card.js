@@ -33,10 +33,14 @@ const Cards = ({ items }) => {
               </ul>
             </div>
             <div className={styles["card-description"]}>
-              <p>{item.description}</p>
+              <p><span>Ingredients: </span>{item.description}</p>
             </div>
             <div className={styles["card-ingredients"]}>
-              <span>{item.ingredients}</span>
+              <p><span>Ingredients: </span>{item.ingredients}</p>
+            </div>
+
+            <div className={styles.user}>
+              <span>Created by: {item.user.username}</span>
             </div>
           </div>
         </div>
