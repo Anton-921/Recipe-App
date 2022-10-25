@@ -3,13 +3,27 @@ import logo from "../../assets/diet.png";
 import styles from "../Header/Header.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthProvider";
 
 const Header = () => {
-  const { auth } = useAuth(useContext(AuthContext));
+  const { auth, setAuth } = useContext(AuthContext);
   const [checked, setChecked] = useState(false);
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/v1/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      setAuth(null)
+      navigate('/signin')
+    } catch (error) {
+      console.log(error, 'signout')
+    }
+  };
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -44,10 +58,12 @@ const Header = () => {
               <li>
                 {/* <FaUserCircle size={35} color="salmon" /> */}
                 <span className={styles.user}>
-                  Hello,{" "}
-                  <a className={styles.username}>{auth.username}</a>!
+                  Hello, <a className={styles.username}>{auth.username}</a>!
                 </span>
-                <button className={[styles["btn-main"], styles.btn].join(" ")}>
+                <button
+                  className={[styles["btn-main"], styles.btn].join(" ")}
+                  onClick={handleLogout}
+                >
                   Logout
                 </button>
               </li>
