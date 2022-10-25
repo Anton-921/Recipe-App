@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useRecipes } from "../../context/RecipeProvider";
 
 const AddRecipe = () => {
-  const { recipes ,setRecipes } = useRecipes();
+  const { recipes, setRecipes } = useRecipes();
   let navigate = useNavigate();
   const form = useRef(null);
 
@@ -13,7 +13,7 @@ const AddRecipe = () => {
     const recipeData = new FormData(form.current);
     try {
       const response = await fetch("http://localhost:8080/api/recipes", {
-        credentials: 'include',
+        credentials: "include",
         method: "POST",
         body: recipeData,
       });
@@ -40,7 +40,13 @@ const AddRecipe = () => {
         <h1>Add Recipe</h1>
         <div className={styles["form-control"]}>
           <label htmlFor="recipe">Recipe Name</label>
-          <input type="text" name="recipeName" maxLength={30} id="recipe" />
+          <input
+            type="text"
+            required
+            name="recipeName"
+            maxLength={30}
+            id="recipe"
+          />
         </div>
 
         <div className={styles["form-control"]}>
@@ -74,7 +80,7 @@ const AddRecipe = () => {
 
         <div className={styles["form-control"]}>
           <label htmlFor="image">Recipe Image</label>
-          <input type="file" accept="image/*" name="imageFile" />
+          <input type="file" required accept="image/*" name="imageFile" />
         </div>
 
         <div className={styles["form-control"]}>
