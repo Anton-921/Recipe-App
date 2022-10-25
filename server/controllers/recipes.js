@@ -4,7 +4,7 @@ const cloudinary = require("../middleware/cloudinary");
 module.exports = {
   getRecipes: async (req, res) => {
     try {
-      const recipes = await Recipe.find({});
+      const recipes = await Recipe.find({}).populate('user');
       res.json(recipes);
     } catch (error) {
       console.log(error)
@@ -16,6 +16,8 @@ module.exports = {
     try {
       const result = await cloudinary.uploader.upload(req.file.path);
 
+      console.log(req.session)
+
       const recipe = await Recipe.create({
         name: body.recipeName,
         type: body.recipeType,
@@ -26,6 +28,7 @@ module.exports = {
         directions: body.directions,
         image: result.secure_url,
         cloudinaryId: result.public_id,
+        user: req.session.userId
       });
 
       res.status(200).json({ recipe });
