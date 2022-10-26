@@ -4,10 +4,10 @@ const cloudinary = require("../middleware/cloudinary");
 module.exports = {
   getRecipes: async (req, res) => {
     try {
-      const recipes = await Recipe.find({}).populate('user');
+      const recipes = await Recipe.find({}).populate("user");
       res.json(recipes);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
 
@@ -16,7 +16,7 @@ module.exports = {
     try {
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      console.log(req.session)
+      console.log(req.session);
 
       const recipe = await Recipe.create({
         name: body.recipeName,
@@ -28,12 +28,20 @@ module.exports = {
         directions: body.directions,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        user: req.session.userId
+        user: req.session.userId,
       });
 
-      res.status(200).json({ recipe });
+      res.status(201).json({ recipe });
     } catch (error) {
       console.log(console.log(error));
+    }
+  },
+  getUserRecipes: async (req, res) => {
+    try {
+      const userRecipes = await Recipe.find({ id: req.session.userId }).populate('user');
+      res.status(200).json({ recipes: userRecipes });
+    } catch (error) {
+      console.log(error);
     }
   },
 };
