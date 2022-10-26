@@ -21,7 +21,7 @@ const AddRecipe = () => {
         }
       );
       const resJson = await response.json();
-      if (response.status === 200) {
+      if (response.status === 201) {
         setRecipes([resJson.recipe, ...recipes]);
         navigate("/home");
       } else {
