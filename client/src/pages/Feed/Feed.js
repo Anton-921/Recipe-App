@@ -14,13 +14,13 @@ const Feed = () => {
     }, 1000);
 
     const getRecipes = () => {
-      setIsLoading(true)
-      fetch("http://localhost:8080/api/recipes")
+      setIsLoading(true);
+      fetch("http://localhost:8080/api/v1/recipes/getRecipes")
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
+          console.log(data);
           setRecipes(data);
-          setIsLoading(false)
+          setIsLoading(false);
         });
     };
 
