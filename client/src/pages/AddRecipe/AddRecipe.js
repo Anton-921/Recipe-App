@@ -12,11 +12,14 @@ const AddRecipe = () => {
     e.preventDefault();
     const recipeData = new FormData(form.current);
     try {
-      const response = await fetch("http://localhost:8080/api/recipes", {
-        credentials: "include",
-        method: "POST",
-        body: recipeData,
-      });
+      const response = await fetch(
+        "http://localhost:8080/api/v1/recipes/postRecipe",
+        {
+          credentials: "include",
+          method: "POST",
+          body: recipeData,
+        }
+      );
       const resJson = await response.json();
       if (response.status === 200) {
         setRecipes([resJson.recipe, ...recipes]);
