@@ -38,6 +38,6 @@ app.use(
 );
 
 app.use("/api/v1/auth", authRoutes);
-app.use("/api", recipeRoutes);
+app.use("/api/v1/recipes", recipeRoutes);
 
 module.exports = app;
