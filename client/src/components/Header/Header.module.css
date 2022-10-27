@@ -93,7 +93,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 560px) {
+@media only screen and (min-width: 630px) {
   .nav__toggle {
     display: none;
   }
