@@ -7,10 +7,8 @@ const recipeSchema = new Schema({
   type: String,
   time: String,
   difficulty: String,
-  likes: {
-    type: String,
-    default: 0,
-  },
+  likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  likeCount: { type: Number, default: 0 },
   description: String,
   ingredients: String,
   user: { type: Schema.Types.ObjectId, ref: "User" },
