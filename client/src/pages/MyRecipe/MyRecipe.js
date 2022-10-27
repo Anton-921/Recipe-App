@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "../MyRecipe/MyRecipe.module.css";
 import Cards from "../../components/Cards/Card";
+import useRecipes from '../../context/RecipeProvider'
 
 const MyRecipe = () => {
-  const [recipes, setRecipes] = useState([])
+  const { recipes, setRecipes } = useRecipes()
 
   useEffect(() => {
     fetchUserRecipes()
