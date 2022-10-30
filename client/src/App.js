@@ -43,8 +43,7 @@ const App = () => {
         navigate("/signin");
       }
     } catch (error) {
-      setIsLoading(false);
-      navigate("/signin");
+      console.log('error', error)
     }
   };
 
