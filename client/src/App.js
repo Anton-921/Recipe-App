@@ -9,6 +9,7 @@ import MyRecipe from "./pages/MyRecipe/MyRecipe";
 import AuthContext from "./context/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import React from "react";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
