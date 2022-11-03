@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from "react";
 import styles from "../MyRecipe/MyRecipe.module.css";
 import Cards from "../../components/Cards/Card";
-import useRecipes from '../../context/RecipeProvider'
+import { useRecipes } from "../../context/RecipeProvider";
 
 const MyRecipe = () => {
-  const { recipes, setRecipes } = useRecipes()
+  const { recipes, setRecipes } = useRecipes();
 
   useEffect(() => {
-    fetchUserRecipes()
-  }, []);
-
-  const fetchUserRecipes = async () => {
-    const response = await fetch(
-      "http://localhost:8080/api/v1/recipes/getUserRecipes",
-      {
-        method: "GET",
-        credentials: "include",
+    const fetchUserRecipes = async () => {
+      const response = await fetch(
+        "http://localhost:8080/api/v1/recipes/getUserRecipes",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
+      const resJson = await response.json();
+      if (response.status === 200) {
+        console.log(resJson.recipes);
+        setRecipes(resJson.recipes);
       }
-    );
-    const resJson = await response.json()
-    if (response.status === 200) {
-      setRecipes(resJson.recipes)
-    }
-  };
+    };
+
+    fetchUserRecipes();
+  }, [setRecipes]);
+
   return (
     <section className={styles.container}>
       <div className={styles.recipes}>
