@@ -22,6 +22,7 @@ const App = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setAuth, setIsLoading]);
 
   const getLoggedUser = async () => {
@@ -44,7 +45,8 @@ const App = () => {
         navigate("/signin");
       }
     } catch (error) {
-      console.log('error', error)
+      setIsLoading(false)
+      console.log('error loggin in user')
     }
   };
 
