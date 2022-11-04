@@ -1,6 +1,7 @@
 const Recipe = require("../models/recipe");
 const User = require("../models/user");
 const cloudinary = require("../middleware/cloudinary");
+const mongoose = require("mongoose");
 
 module.exports = {
   getRecipes: async (req, res) => {
@@ -39,20 +40,18 @@ module.exports = {
   },
   getUserRecipes: async (req, res) => {
     try {
-      const userRecipes = await Recipe.find({ id: req.session.userId })
-        .populate("user", "username")
-        .populate("likes", "username");
-      res.status(200).json({ recipes: userRecipes });
+      const recipes = await Recipe.find({ user: req.session.userId })
+        .populate("likes", "username")
+        .populate("user");
+      res.status(200).json({ recipes });
     } catch (error) {
       console.log(error);
     }
   },
   likeRecipe: async (req, res) => {
-    const userId = req.session.userId; 
-    const id = req.params.id; 
-    const likedRecipe = await Recipe.findById(id)
-      .populate("likes", "username")
-      .populate("user");
+    const userId = req.session.userId;
+    const id = req.params.id;
+    const likedRecipe = await Recipe.findById(id).populate("likes", "username");
 
     const hasLiked = likedRecipe.likes.some(
       (like) => userId === like._id.toHexString()
