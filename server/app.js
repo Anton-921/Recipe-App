@@ -29,7 +29,7 @@ app.use(
     cookie: {
       secure: false,
       maxAge: 1000 * 60 * 60 * 24,
-      sameSite: "none",
+      sameSite: "lax",
     },
     store: MongoStore.create({
       mongoUrl: process.env.DATABASE_CONNECTION_STRINGS,
