@@ -1,8 +1,11 @@
 .container {
   margin-top: 2em;
-  padding: 1em;
 }
-
+.login {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1em
+}
 .container h1 {
   margin: 1.5em 0;
 }
