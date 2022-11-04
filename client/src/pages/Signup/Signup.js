@@ -17,7 +17,7 @@ const Signup = () => {
         "http://localhost:8080/api/v1/auth/register",
         {
           method: "POST",
-          credentials: 'include',
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -29,7 +29,7 @@ const Signup = () => {
 
       if (response.status === 201) {
         setAuth(resJson.user);
-        navigate('/home')
+        navigate("/home");
       }
     } catch (error) {
       console.log("catch error");
@@ -38,48 +38,50 @@ const Signup = () => {
 
   return (
     <section className={styles.container}>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignup} className={styles.form}>
-        <div className={styles["form-control"]}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
+      <div className={styles.login}>
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSignup} className={styles.form}>
+          <div className={styles["form-control"]}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
 
-        <div className={styles["form-control"]}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className={styles["form-control"]}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+          <div className={styles["form-control"]}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles["form-control"]}>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        {/* <div className={styles["form-control"]}>
+          {/* <div className={styles["form-control"]}>
           <label htmlFor="password-confirm">Confirm Password</label>
           <input type="password" name="password-confirm" />
         </div> */}
 
-        <div>
-          <button className={`${styles.btn} ${styles["btn-main"]}`}>
-            Sign Up
-          </button>
-        </div>
-      </form>
+          <div>
+            <button className={`${styles.btn} ${styles["btn-main"]}`}>
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 };
