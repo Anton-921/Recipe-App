@@ -18,52 +18,54 @@ const Login = () => {
     try {
       const response = await fetch("http://localhost:8080/api/v1/auth/login", {
         method: "POST",
-        credentials: 'include',
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
       });
 
-      const resJson = await response.json()
+      const resJson = await response.json();
       if (response.status === 200) {
-        setAuth(resJson.user)
-        navigate('/home')
+        setAuth(resJson.user);
+        navigate("/home");
       } else {
         // Set Error
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   return (
     <section className={styles.container}>
-      <h1>Login</h1>
-      <form action="" className={styles.form} onSubmit={handleLogin}>
-        <div className={styles["form-control"]}>
-          <label htmlFor="username">Email</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className={styles["form-control"]}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPwd(e.target.value)}
-          />
-        </div>
+      <div className={styles.login}>
+        <h1>Login</h1>
+        <form action="" className={styles.form} onSubmit={handleLogin}>
+          <div className={styles["form-control"]}>
+            <label htmlFor="username">Email</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles["form-control"]}>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPwd(e.target.value)}
+            />
+          </div>
 
-        <div>
-          <button className={`${styles.btn} ${styles["btn-main"]}`}>
-            Sign In
-          </button>
-        </div>
-      </form>
+          <div>
+            <button className={`${styles.btn} ${styles["btn-main"]}`}>
+              Sign In
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 };
