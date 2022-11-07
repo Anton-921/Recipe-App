@@ -3,6 +3,7 @@ import styles from "../Cards/Cards.module.css";
 import { AiOutlineClockCircle, AiFillFire } from "react-icons/ai";
 import { BsFillBarChartFill } from "react-icons/bs";
 import { useRecipes } from "../../context/RecipeProvider";
+import { Link } from "react-router-dom";
 
 const Cards = ({ items }) => {
   const { recipes, setRecipes } = useRecipes();
@@ -74,8 +75,13 @@ const Cards = ({ items }) => {
               </p>
             </div>
 
-            <div className={styles.user}>
-              <span>Created by: {item.user.username}</span>
+            <div className={styles.info}>
+              <span className={styles.username}>
+                Created by: {item.user.username}
+              </span>
+              <Link to={`/recipe/${item._id}`} state={{ recipe: item }}>
+                <span className={styles.view}>View</span>
+              </Link>
             </div>
           </div>
         </div>
