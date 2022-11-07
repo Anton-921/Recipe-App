@@ -10,6 +10,7 @@ import AuthContext from "./context/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import React from "react";
+import Recipe from "./pages/Recipe/Recipe";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +64,7 @@ const App = () => {
           <Route path="home" element={<Feed />} />
           <Route path="addrecipe" element={<AddRecipe />} />
           <Route path="myrecipe" element={<MyRecipe />} />
+          <Route path="recipe/:id" element={<Recipe />} />
         </Route>
       </Route>
     </Routes>
