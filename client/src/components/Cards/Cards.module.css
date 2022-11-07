@@ -8,10 +8,12 @@
   row-gap: 30px;
   column-gap: 15px;
 }
-
+a {
+  text-decoration: none;
+}
 .card {
-  min-width: 300px;
-  max-width: 500px;
+  min-width: 200px;
+  max-width: 350px;
   flex: 1 0 40%;
   display: flex;
   flex-direction: column;
@@ -20,6 +22,10 @@
   background-color: #fff;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all .4s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.1);
 }
 .card-heading {
   flex: 0 1 auto;
@@ -106,17 +112,24 @@
   font-weight: 600;
   font-size: 0.9rem;
 }
-.card .user {
+.card .info {
   margin-top: auto;
   margin-bottom: .5rem;
 }
 
-.user span {
-  font-size: 0.85rem;
-  background-color: #f87469;
+.info .username, .view {
   color: white;
-  padding: .125rem;
+  font-size: 0.85rem;
   border-radius: 4px;
+  margin-right: 1em;
+  padding: .145rem;
+}
+.username {
+  background-color: #f87469;
+}
+.view {
+  background-color: rgb(116, 184, 255);
+  cursor: pointer;
 }
 .icon-like {
   cursor: pointer;
