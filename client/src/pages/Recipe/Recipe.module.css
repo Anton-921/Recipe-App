@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(247, 250, 252);
+  flex: 1 0 0; 
+}
+.recipe {
+  background-color: #FFFFFF;
+  box-shadow: rgba(79, 79, 106, 0.06) 0px 0px 12px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 12px;
+  padding-top: 15px;
+  object-fit: contain;
+}
+.image {
+  margin: 0px 16px 16px;
+  object-fit: fill;
+}
+
+.image img {
+  border-radius: 6px;
+  height: 250px;
+  width: 100%;
+}
+
+.likes {
+  margin: 0 16px;
+  display: flex;
+  align-items: center;
+}
+.likes span {
+  margin-left: 7px;
+}
+.description {
+  margin: 15px 16px;
+}
+.description p {
+  word-break: break-word;
+  color: rgb(113, 127, 148);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.timer {
+  display: flex;
+  margin: 10px 16px;
+}
+
+.timer > div {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.timer span {
+  padding-left: 5px;
+  text-transform: capitalize;
+  font-size: .85rem;
+}
